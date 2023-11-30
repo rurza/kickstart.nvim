@@ -112,7 +112,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -202,6 +202,8 @@ require('lazy').setup({
       },
     },
   },
+
+  { 'echasnovski/mini.indentscope', version = '*' },
 
   {
     -- Highlight, edit, and navigate code
@@ -294,6 +296,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- [[ Configure mini.indentscope ]]
+require('mini.indentscope').setup {
+  opts = {
+    -- symbol = "▏",
+    symbol = "│",
+    options = { try_as_border = true },
+  },
+}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
